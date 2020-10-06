@@ -1,0 +1,8 @@
+#scoreTbl tr th:nth-child(1){width: 10%;}
+#scoreTbl tr th:nth-child(2){width: 30%;}
+#scoreTbl tr th:nth-child(3){width: 20%;}
+#scoreTbl tr th:nth-child(4){width: 20%;}
+#scoreTbl tr th:nth-child(5){width: 20%;}
+
+#weatherTbl tr th:nth-child(1){width: 20%;}
+#weatherTbl tr th:nth-child(2){width: 80%;}

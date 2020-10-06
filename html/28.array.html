@@ -1,0 +1,59 @@
+<script>
+var arr= [];
+arr = ['a','b','c'];
+
+arr= [];
+arr.unshift('a');
+arr.unshift('b');
+arr.unshift('c');
+
+console.log(arr.splice(0,0,'aa') , arr);
+
+arr = ["딸기","바나나","멜론"];
+console.log(arr.splice(1,1,"포도"),arr);
+
+arr = ["딸기","바나나","멜론"];
+arr.splice(2,0,'포도','자두');
+console.log(arr);
+
+arr = ["딸기","바나나","포도","자두","수박","멜론"];
+var arr2 = arr.slice(2,4);
+console.log(arr,arr2);
+
+
+arr = ["딸기","바나나","포도","자두","수박","멜론"];
+var str = arr.toString();
+console.log(str);
+
+var str = "딸기,바나나,포도,자두,수박,멜론";
+var arr = str.split(',');
+console.log(arr);
+
+var cart = '1/30000/2/60000 , 5/25000/3/75000';
+var arr = cart.split(',');
+for(i in arr){
+	var prd = [];
+	prd.push(arr[i].split('/')); 
+}
+
+var arr = [];
+for (var i = 1; i < 16; i++ ){
+	arr.push(i);
+}
+var everyArr = arr.every(function(v){
+	return v % 2 == 0;
+});
+
+var someArr = arr.some(function(v){
+	return v % 2 == 0;
+});
+
+var evenArr = arr.filter(function(v){
+	return v % 2 == 0;
+});
+
+var mapArr = arr.map(function(v){
+	return v % 2 == 0;
+}); 
+
+</script>
