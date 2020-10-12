@@ -1,0 +1,61 @@
+<script src="../js/moment-with-locales.min.js"></script>
+<script>
+var dt = new Date();
+console.log(dt);
+var dt = new Date('2020-12-25 11:15:20');
+console.log(dt);
+console.log(dt.toLocaleString());
+
+//timestamp 가져오기
+var dt = new Date();
+console.log(dt.getTime());
+
+//년도 가져오기
+var dt = new Date();
+console.log(dt.getFullYear());
+
+//월 가져오기
+var month =[];
+for( var i = 0; i < 12; i++){
+	month.push( (i+1)+'월'); 
+}
+var dt = new Date();
+console.log(month[dt.getMonth()]);
+
+//일 가져오기
+var dt = new Date();
+console.log(dt.getDate());
+
+//요일 가져오기
+var week = ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'];
+var dt = new Date();
+console.log(week[dt.getDay()]);
+
+//시간 가져오기
+var dt = new Date();
+console.log(dt.getHours());
+
+//분 가져오기
+var dt = new Date();
+console.log(dt.getMinutes());
+
+//초 가져오기
+var dt = new Date();
+console.log(dt.getSeconds());
+
+//로컬 날짜로 변경
+var dt = new Date();
+var korDt = dt.getFullYear()+"년 ";
+korDt += month[dt.getMonth()] + " ";
+korDt += dt.getDate()+"일 ";
+korDt += dt.getHours() + "시 ";
+korDt += dt.getMinutes() + "분 ";
+korDt += dt.getSeconds() + "초 ";
+korDt += week[dt.getDay()] +" ";
+console.log(korDt)
+
+//moment.js
+moment.locale('ko');
+console.log(moment().format('llll'));
+
+</script>
