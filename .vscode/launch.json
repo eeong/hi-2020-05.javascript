@@ -1,0 +1,18 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Launch Chrome",
+			"request": "launch",
+			"type": "pwa-chrome",
+			"url": "http://127.0.0.1:5500/html/33.step-slide.html",
+			"webRoot": "${workspaceFolder}"
+		},
+		{
+			"type": "pwa-chrome",
+			"request": "launch",
+			"name": "Open 33.step-slide.html",
+			"file": "c:\\Users\\hi\\Documents\\4\\hi-2020-05.javascript\\html\\33.step-slide.html"
+		}
+	]
+}
