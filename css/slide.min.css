@@ -1,16 +1,19 @@
 .custom-wrapper{width: 100%; position: absolute; top: 0; left: 0; }
-.custom-wrapper .custom-img{width: 100%; position: relative;}
-
+.custom-wrapper .w100 {width: 100%; height: auto; }
+.custom-wrapper .h100 {height: 100%; height: auto; }
 .custom-wrapper.custom-horizental{display: flex;}
 .custom-wrapper.custom-horizental .custom-slide{flex: 100% 0 0; position: relative;}
-.custom-wrapper.custom-vertical{display: flex; flex-direction: column;}
-.custom-wrapper.custom-vertical .slide{flex:100% 0 0;}
-.custom-wrapper.custom-fade .slide{position: absolute;}
+.custom-wrapper.custom-fade .custom-slide{position: absolute; width: 100%;}
+.custom-wrapper.custom-step {position: relative; display: flex;}
+.custom-wrapper.custom-step .custom-slide{ background-repeat: no-repeat; background-size: cover; background-position: center; }
+.custom-wrapper.custom-step .custom-slide > img.w100{opacity: 0;}
 
-.custom-slide > div {position: absolute; top: 0; left: 0; color: #fff; font-size: 2rem; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; user-select: none; z-index: 15;}
 
-.btn-custom{position: absolute; font-size: 10rem; color: #fff; top: 50%; transform: translateY(-50%); z-index: 15; text-shadow: 0 0 5px #000; cursor: pointer;}
 
+.custom-slide > div {position: absolute; top: 0; left: 0; color: #fff; font-size: 2rem; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; user-select: none;}
+
+.btn-custom{position: absolute; font-size: 10rem; color: #fff; top: 50%; transform: translateY(-50%); z-index: 15; text-shadow: 0 0 5px #000; cursor: pointer; opacity: 0.8;}
+.btn-custom:hover{opacity: 1;}
 .btn-custom.custom-prev{left: 1rem;}
 .btn-custom.custom-next{right: 1rem;}
 

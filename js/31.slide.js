@@ -11,7 +11,7 @@ new Slide({
 	auto : true, //false, true
 	delay : 2000, //3000
 	speed : 700, //500
-	pager: "false", //false,true
+	pager: false, //false,true
 	btnUse: true, //true,false
 })
 
@@ -33,8 +33,9 @@ new Slide({
 })
 
 
+
 new Slide({
-	slide : ['../img/slide-0.jpg','../img/slide-1.jpg','../img/slide-2.jpg','../img/slide-3.jpg','../img/home-1a-.jpg','../img/home-2.jpg','../img/home-3.jpg','../img/home-4.jpg','../img/home-5a.jpg'],
+	slide : ['../img/slide-0.jpg','../img/slide-1.jpg','../img/slide-2.jpg','../img/slide-3.jpg','../img/home-1a.jpg','../img/home-2.jpg','../img/home-3.jpg','../img/home-4.jpg','../img/home-5a.jpg'],
 	container : ".step-stage",
 	direction : "step",
 	slideTitle: [
@@ -54,4 +55,5 @@ new Slide({
 	btnUse: true, //true,false
 	pager: true, //false,true
 	viewCount: 5,
+	userMargin : 8,
 })

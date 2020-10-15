@@ -14,6 +14,8 @@
 
 		.custom-wrapper {position: relative; display: flex; border: 10px solid #000;}
 
+		.custom-slide {background-repeat: no-repeat; background-size: cover; background-position: center; margin: 0 0.5%; }
+		.custom-slide > img{opacity: 0;}
 	/* 	@media screen and (max-width: 1199px){
 		.custom-wrapper {width: 150%; left: -25%; }
 		.custom-wrapper .custom-slide{flex:16.6666% 0 0; }
@@ -31,54 +33,64 @@
 		@media screen and (max-width: 575px){
 		.custom-wrapper {width: 300%; left: -100%; }
 		.custom-wrapper .custom-slide{flex: 33.3333% 0 0; }
-			 */
-		}
+			 
+		}*/
 	</style>
 </head>
 <body>
 	<div class="container">
 		<div class="stage">
 			<div class="slide-wrap custom-wrapper">
-				<div class="custom-slide">
-					<img src="../img/home-1a.jpg" class="w100">
+				<div class="custom-slide" style="background-image: url('../img/home-1a.jpg')">
+				<img src=	'../img/home-1a.jpg' class="w100">
 				</div>
-				<div class="custom-slide">
-					<img src="../img/slide-0.jpg" class="w100">
+				<div class="custom-slide" style="background-image: url('../img/slide-0.jpg')">
+				<img src=	'../img/slide-0.jpg' class="w100">
 				</div>
-				<div class="custom-slide">
-					<img src="../img/slide-1.jpg" class="w100">
+				<div class="custom-slide" style="background-image: url('../img/slide-1.jpg')">
+				<img src=	'../img/slide-1.jpg' class="w100">
 				</div>
-				<div class="custom-slide">
-					<img src="../img/home-2.jpg" class="w100">
+				<div class="custom-slide" style="background-image: url('../img/home-2.jpg')">
+				<img src=	'../img/home-2.jpg' class="w100">
 				</div>
-				<div class="custom-slide">
-					<img src="../img/home-3.jpg" class="w100">
+				<div class="custom-slide" style="background-image: url('../img/home-3.jpg')">
+				<img src=	'../img/home-3.jpg' class="w100">
 				</div>
-				<div class="custom-slide">
-					<img src="../img/slide-2.jpg" class="w100">
+				<div class="custom-slide" style="background-image: url('../img/slide-2.jpg')">
+				<img src=	'../img/slide-2.jpg' class="w100">
 				</div>
-				<div class="custom-slide">
-					<img src="../img/slide-3.jpg" class="w100">
+				<div class="custom-slide" style="background-image: url('../img/slide-3.jpg')">
+				<img src=	'../img/slide-3.jpg' class="w100">
 				</div>
-				<!-- <div class="custom-slide">
-					<img src="../img/home-4.jpg" class="w100">
+				<!-- <div class="custom-slide" style="background-image: url('../img/home-4.jpg')">
 				</div>
-				<div class="custom-slide">
-					<img src="../img/home-5a.jpg" class="w100">
+				<div class="custom-slide" style="background-image: url('../img/home-5a.jpg')">
 				</div> -->
 			</div>
 		</div>
 	</div>
 	<script>
-		var viewCount=4;
-		
+		var viewCount=3;
+		var slide=[
+		'../img/home-1a.jpg',
+		'../img/slide-0.jpg',
+		'../img/slide-1.jpg',
+		'../img/home-2.jpg',
+		'../img/home-3.jpg',
+		'../img/slide-2.jpg',
+		'../img/slide-3.jpg',
+		'../img/home-4.jpg',
+		'../img/home-5a.jpg'
+		];
+
 		function stepCalc(viewCount){
 			var slide = {};
+			var userMargin = 8;
 			slide.wrapWid = ((100/viewCount)*(viewCount+2)).toFixed(4);
 			slide.wid = (100/(viewCount+2)).toFixed(4);
 			slide.leftValue = (-(100/viewCount)).toFixed(4);
 			$(".custom-wrapper").css({"width": slide.wrapWid+"%" , "left": slide.leftValue+"%" });
-			$(".custom-wrapper .custom-slide").css({"flex": slide.wid+"% 0 0"});
+			$(".custom-wrapper .custom-slide").css({"flex": "calc("+ slide.wid+"% - "+ userMargin*2 +") 0 0" , "margin":"0 "+ userMargin + "px"});
 		}
 		
 		function onResize(){
@@ -86,22 +98,18 @@
 			var cnt = viewCount;
 			if(winWid >= 1200){
 				stepCalc(cnt);
-				
 			}
 			else if(winWid < 1200){
-				stepCalc(cnt-1);
+				stepCalc(cnt-1 < 1 ? 1 : cnt -1);
 			}
 			else if(winWid < 992){
-				stepCalc(cnt-2);
-				
+				stepCalc(cnt-2 < 1 ? 1 : cnt -2);		
 			}
 			else if(winWid < 768){
-				stepCalc(cnt-3);
-				
+				stepCalc(cnt-3 < 1 ? 1 : cnt -3);
 			}
 			else if(winWid < 576){
-				stepCalc(cnt-4);
-				
+				stepCalc(cnt-4 < 1 ? 1 : cnt -4);
 			}
 		}
 		$(window).resize(onResize).trigger('resize');
@@ -109,3 +117,99 @@
 		</script>
 </body>
 </html>
+
+<!-- (function(){
+	/* 전역변수 선언 */
+	var slides = [
+		{ id: 0, src: '../img/lx-2-0.jpg', title: '침대1' },
+		{ id: 1, src: '../img/lx-2-1.jpg', title: '침대2' },
+		{ id: 2, src: '../img/lx-2-2.jpg', title: '침대3' },
+		{ id: 3, src: '../img/lx-5-0.jpg', title: '쇼파1' },
+		{ id: 4, src: '../img/lx-5-1.jpg', title: '쇼파2' },
+		{ id: 5, src: '../img/lx-5-2.jpg', title: '쇼파3' },
+		{ id: 6, src: '../img/lx-3-0.jpg', title: '의자1' },
+		{ id: 7, src: '../img/lx-3-1.jpg', title: '의자2' },
+		{ id: 8, src: '../img/lx-3-2.jpg', title: '의자3' },
+		{ id: 9, src: '../img/lx-6-0.jpg', title: '쇼파4' },
+		{ id: 10, src: '../img/lx-6-1.jpg', title: '쇼파5' },
+		{ id: 11, src: '../img/lx-6-2.jpg', title: '쇼파6' }
+	];	
+	var $wrapper = $(".wrapper8");
+	var $slideWrap = $(".wrapper8 .slide-wrap");
+	var $btnPrev = $(".btn-prev", $wrapper);
+	var $btnNext = $(".btn-next", $wrapper);
+	var $slides = [];
+	var idx = 0;
+	var lastIdx  = slides.length-1;
+	var slideNum = 4;
+	var target;
+	var winWid = $(window).outerWidth();
+	var interval;
+	/* 사용자 함수 */
+	init();
+	function init(){
+		var i, html;
+		for (var i in slides){
+			html = "<div class='slide'>";
+			html += "<img class='w-100' src='"+slides[i].src+"'>";
+			html += "<h1>"+i+"</h1>";
+			html += "</div>";
+			$slides.push($(html));
+		}
+		slideInit();
+		interval = setInterval(onClickNext,3000);
+	}
+
+	function slideInit(){
+		$btnNext.off("click").click(onClickNext);
+		$btnPrev.off("click").click(onClickPrev);
+		$($slides[idx].clone()).appendTo($slideWrap.empty().attr("style",""));
+		if (idx == 0)
+			$($slides[lastIdx].clone()).prependTo($slideWrap);
+			else 
+			$($slides[idx-1].clone()).prependTo($slideWrap);
+			
+		for( var i = 1; i<=slideNum; i++){
+			if((idx+i) > lastIdx) $($slides[-(lastIdx - (idx+i))-1].clone()).appendTo($slideWrap);
+			else $($slides[idx+i].clone()).appendTo($slideWrap);
+		}
+	}
+
+	function ani(){
+		$slideWrap.stop().animate({"left": target+"%"}, 500, slideInit);
+		}
+
+	/* 이벤트 콜백 */
+	function onClickNext(){
+		$(this).off("click");
+		idx = idx == lastIdx ? 0 : idx + 1;
+		if(winWid < 576){
+			target = -200;
+		} else if(winWid < 768){
+			target = -100;
+		} else if(winWid < 992){
+			target = -66.6666;
+		} else {
+			target = -50; 
+		}  
+		ani();
+		
+	}
+	
+	function onClickPrev(){
+		$(this).off("click");
+		idx = idx == 0 ? lastIdx : idx - 1;
+		target=0;
+		ani();
+	}	
+	/* 이벤트 등록 */
+
+	$btnPrev.click(onClickPrev);
+	$btnNext.click(onClickNext);
+	$wrapper.mouseover(function(){
+		clearInterval(interval);
+	}).mouseleave(function(){
+		interval = setInterval(onClickNext,3000);
+	});
+	
+})(); -->
